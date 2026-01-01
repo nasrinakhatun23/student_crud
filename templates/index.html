@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student CRUD App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <h2>Student CRUD App</h2>
+
+    <form action="/add" method="post">
+        <input type="text" name="name" placeholder="Student Name" required>
+        <button type="submit">Add</button>
+    </form>
+
+
+    <ul>
+        {% for student in students %}
+        <li>
+            {{ student }}
+            <a href="/edit/{{ loop.index0 }}">Edit</a>
+            <a href="/delete/{{ loop.index0 }}">Delete</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
